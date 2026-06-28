@@ -5,6 +5,8 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
+    ports:
+      - "5433:5432" 
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
     restart: unless-stopped
@@ -31,3 +33,5 @@ services:
 volumes:
   odoo-db-data:
   odoo-web-data:
+
+# ibze-gcdu-r826
