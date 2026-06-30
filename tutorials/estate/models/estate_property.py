@@ -23,13 +23,6 @@ class EstateProperty(models.Model):
     active = fields.Boolean(default=True)
     state = fields.Selection(
         string="Status",
-        selection=[("new", "New"), ("open", "Open"), ("sold", "Sold"), ("cancelled", "Cancelled")],
+        selection=[("new", "New"), ("open", "Open"), ("closed", "Closed")],
         default="new"
     )
-
-    def action_sold(self):
-        self.state = 'sold'
-
-    def action_cancel(self):
-        self.state = 'cancelled'
-
