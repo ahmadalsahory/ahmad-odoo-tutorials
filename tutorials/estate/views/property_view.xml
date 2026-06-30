@@ -65,7 +65,7 @@
         <field name="name">estate.property.form</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <form string="Property">
+            <form string="Property" class="o_estate_property_form">
                 <!-- 1. شريط الحالة العلوي (Header) للأزرار ومراحل العمل -->
                 <header>
                     <button name="action_sold" type="object" string="Set as Sold" class="oe_highlight" invisible="state == 'closed'"/>
