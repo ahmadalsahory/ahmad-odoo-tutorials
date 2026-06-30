@@ -7,5 +7,5 @@
         id="manage_property_menu"
         name="Manage Properties"
         parent="real_estate_root_menu"
-     />
+    />
 </odoo>
