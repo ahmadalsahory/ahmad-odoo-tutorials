@@ -29,7 +29,7 @@
         </field>
     </record>
 
-    <record id="estate_property_view_form" model="ir.ui.view">
+    <!-- <record id="estate_property_view_form" model="ir.ui.view">
         <field name="name">Property Form</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
@@ -59,7 +59,70 @@
                 </group>
             </form>
         </field>
+    </record> -->
+
+    <record id="estate_property_view_form" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Property">
+                <!-- 1. شريط الحالة العلوي (Header) للأزرار ومراحل العمل -->
+                <header>
+                    <button name="action_sold" type="object" string="Set as Sold" class="oe_highlight" invisible="state == 'closed'"/>
+                    <button name="action_cancel" type="object" string="Cancel Property" invisible="state == 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,open,sold,cancelled"/>
+                </header>
+
+                <sheet>
+                    <!-- 2. كتلة العنوان الرئيسي (Title Block) -->
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Property Title"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Cozy Apartment with Garden"/>
+                        </h1>
+                    </div>
+
+                    <!-- 3. تنظيم الحقول في لوحة معلومات علوية رئيسية -->
+                    <group>
+                        <group string="Basic Info">
+                            <field name="postcode"/>
+                            <field name="date_availability"/>
+                        </group>
+                        <group string="Financials">
+                            <field name="expected_price" widget="monetary"/>
+                            <field name="selling_price" widget="monetary"/>
+                        </group>
+                    </group>
+
+                    <!-- 4. التبويبات السفلية للمعلومات التفصيلية (Notebook) -->
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder="Provide a detailed description of the property..."/>
+                        </page>
+                        <page string="Property Details">
+                            <group>
+                                <group string="Interior">
+                                    <field name="bedrooms"/>
+                                    <field name="living_area"/>
+                                    <field name="facades"/>
+                                    <field name="garage"/>
+                                </group>
+                                <group string="Exterior">
+                                    <field name="garden"/>
+                                    <!-- 5. ديناميكية الحقول: إخفاء حقول الحديقة إذا لم يكن هناك حديقة -->
+                                    <field name="garden_area" invisible="not garden"/>
+                                    <field name="garden_orientation" invisible="not garden"/>
+                                    <field name="active"/>
+                                    <field name="state"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
     </record>
+
 
     <menuitem id="property_menu" name="Properties List" parent="manage_property_menu" action="property_action" />
 </odoo>
