@@ -23,7 +23,8 @@
                 <field name="garden" optional="show"/>
                 <field name="garden_area" optional="show"/>
                 <field name="garden_orientation" optional="hidden"/>
-
+                <field name="active" optional="hidden"/>
+                <field name="state" optional="hidden"/>
             </list>
         </field>
     </record>
