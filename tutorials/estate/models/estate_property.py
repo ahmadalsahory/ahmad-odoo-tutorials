@@ -69,3 +69,10 @@ class EstateProperty(models.Model):
         if self.date_availability and self.date_availability < fields.Date.today():
             errors.append("Date availability must be in the future")
         return errors
+
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        result = super(EstateProperty, self).create(vals_list)
+        print("======== CREATED ========", flush=True)
+        return result
