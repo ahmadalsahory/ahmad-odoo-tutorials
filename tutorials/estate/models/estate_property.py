@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 class EstateProperty(models.Model):
     _name = "estate.property"
@@ -6,7 +7,7 @@ class EstateProperty(models.Model):
 
     name = fields.Char(string="Title", required=True)
     description = fields.Text()
-    postcode = fields.Char()
+    postcode = fields.Char(default="000000")
     date_availability = fields.Date(copy=False, default=fields.Date.add(fields.Date.today(), months=3))
     expected_price = fields.Float(required=True)
     selling_price = fields.Float(readonly=True, copy=False)
@@ -26,3 +27,43 @@ class EstateProperty(models.Model):
         selection=[("new", "New"), ("open", "Open"), ("closed", "Closed")],
         default="new"
     )
+
+    _name_unique = models.Constraint(
+        'UNIQUE(name)', 
+        'The Name must be unique'
+    )
+
+    @api.constrains('postcode','date_availability','bedrooms','living_area','facades','garden_area')
+    def _validate_property_fields(self):
+        errors = []
+        for record in self:
+            errors.extend(record._validate_grater_than_zero())
+            errors.extend(record._validate_postcode())
+            errors.extend(record._validate_date_availability())
+        if errors:
+            raise ValidationError("\n".join(errors))
+
+
+    def _validate_grater_than_zero(self):
+        errors = []
+        if self.bedrooms <= 0:
+            errors.append("Bedrooms must be greater than zero")
+        if self.living_area <= 0:
+            errors.append("Living Area must be greater than zero")
+        if self.facades <= 0:
+            errors.append("Facades must be greater than zero")
+        if self.garden_area <= 0:
+            errors.append("Garden Area must be greater than zero")
+        return errors
+
+    def _validate_postcode(self):
+        errors = []
+        if self.postcode and (len(self.postcode) < 3 or len(self.postcode) > 12):
+            errors.append("Postcode must be between 3 and 12 characters")
+        return errors
+
+    def _validate_date_availability(self):
+        errors = []
+        if self.date_availability and self.date_availability < fields.Date.today():
+            errors.append("Date availability must be in the future")
+        return errors
