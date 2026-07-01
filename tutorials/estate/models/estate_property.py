@@ -5,9 +5,9 @@ class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "Estate Property"
 
-    name = fields.Char(string="Title", required=True)
+    name = fields.Char(string="Title", required=True, default="New")
     description = fields.Text()
-    postcode = fields.Char(default="000000")
+    postcode = fields.Char(default="000000", size=12)
     date_availability = fields.Date(copy=False, default=fields.Date.add(fields.Date.today(), months=3))
     expected_price = fields.Float(required=True)
     selling_price = fields.Float(readonly=True, copy=False)
@@ -33,7 +33,7 @@ class EstateProperty(models.Model):
         'The Name must be unique'
     )
 
-    @api.constrains('postcode','date_availability','bedrooms','living_area','facades','garden_area')
+    @api.constrains('postcode','date_availability','bedrooms','living_area','facades','garden_area','expected_price')
     def _validate_property_fields(self):
         errors = []
         for record in self:
@@ -54,6 +54,8 @@ class EstateProperty(models.Model):
             errors.append("Facades must be greater than zero")
         if self.garden_area <= 0:
             errors.append("Garden Area must be greater than zero")
+        if self.expected_price <= 0:
+            errors.append("Expected Price must be greater than zero")
         return errors
 
     def _validate_postcode(self):
