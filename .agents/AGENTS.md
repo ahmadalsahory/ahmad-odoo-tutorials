@@ -28,3 +28,7 @@ Please follow these guidelines strictly:
 5. **Always Reference the Custom Documentation File**:
    * For any Odoo 19 developer or reference questions (e.g., ORM, views, actions, OWL, standard modules), you must consult [odoo_documentation.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/odoo_documentation.md) as your primary source of truth.
    * Search this file first to ensure all abstract examples, syntax templates, and explanations align exactly with the Odoo 19 standards documented in it.
+
+6. **Maintain Daily Training Log**:
+   * A git `post-commit` hook automatically appends git commit messages to [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) under the current date.
+   * Whenever you commit changes or finalize a tutoring session, verify [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) and fill in the `- [ ] Describe what you learned here` checkbox summaries with the actual conceptual learning outcomes (e.g. Odoo model definitions, XML inheritance, Docker configurations).

@@ -107,7 +107,16 @@ EOF
 )"
 ```
 
+### 5. Update Training Log
+
+Since we have a `post-commit` git hook, committing automatically appends the commit hash and description to [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) under the current date.
+Immediately after making a commit:
+1. Open [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md).
+2. Locate the current day's entry.
+3. Replace the placeholder checkbox list under `Key Concepts Learned:` with the actual technical concepts covered (e.g. Odoo inheritance, custom widgets, security groups).
+
 ## Best Practices
+
 
 - One logical change per commit
 - Present tense: "add" not "added"
