@@ -13,7 +13,7 @@ services:
 
   odoo:
     image: odoo:19
-    command: --config /workspace/odoo.conf -u estate -d odoo-db
+    command: --config /workspace/odoo.conf -u estate
     depends_on:
       - db
     ports:

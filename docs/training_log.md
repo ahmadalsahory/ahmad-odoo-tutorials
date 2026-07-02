@@ -15,7 +15,11 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Overriding low-level Odoo ORM `_search` method and adapting arguments to Odoo 19 signature.
   - [x] Overriding Odoo ORM `write` and `unlink` methods for custom save and delete hooks.
   - [x] Troubleshooting missing filestore assets (FileNotFoundError) by querying `ir_attachment` and upgrading Odoo base/custom modules to rebuild assets.
+  - [x] Customizing Odoo App Icons and Menu Icons (understanding PNG vs SVG support in `ir.module.module` vs `ir.ui.menu`).
+  - [x] Configuring `web_icon` on root menu items in XML views.
+  - [x] Managing multi-database environments in Docker by removing the `-d` restriction.
 - **Commits**:
+  - `384fb41` - feat(estate): override ORM write and unlink methods
   - `9a02493` - feat(estate): override _search method and modernize super call
   - `8eda998` - docs(training): check off completed learning outcomes in training log
   - `61cdf5f` - docs(training): initialize training activity log
