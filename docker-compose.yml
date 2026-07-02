@@ -24,6 +24,7 @@ services:
       - odoo-extra-addons:/mnt/extra-addons
       - ./tutorials:/workspace/tutorials
       - ./odoo.conf:/workspace/odoo.conf
+      - ./theme_addons:/workspace/theme_addons
     restart: unless-stopped
 
 volumes:
