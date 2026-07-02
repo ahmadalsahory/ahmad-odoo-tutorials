@@ -79,10 +79,20 @@ class EstateProperty(models.Model):
         return result
 
     @api.model
-    def _search(self, domain, offset=0, limit=None, order=None):
+    def _search(self, domain, offset=0, limit=None, order=None, **kwargs):
         print('======== BEFORE SEARCH ========', flush=True)
-        result = super()._search(domain, offset, limit, order)
+        result = super(EstateProperty, self)._search(domain, offset, limit, order, **kwargs)
         print('======== AFTER SEARCH ========', flush=True)
         return result
 
-    
+    def write(self, vals):
+        print('======== BEFORE WRITING ========', flush=True)
+        result = super(EstateProperty, self).write(vals)
+        print('======== AFTER WRITING ========', flush=True)
+        return result
+
+    def unlink(self):
+        print('======== BEFORE DELETING ========', flush=True)
+        result = super(EstateProperty, self).unlink()
+        print('======== AFTER DELETING ========', flush=True)
+        return result

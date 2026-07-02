@@ -13,7 +13,10 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Writing custom compiler scripts to convert Sphinx documentation HTML to formatted Markdown.
   - [x] Configuring project-specific agent instruction rules in `AGENTS.md`.
   - [x] Overriding low-level Odoo ORM `_search` method and adapting arguments to Odoo 19 signature.
+  - [x] Overriding Odoo ORM `write` and `unlink` methods for custom save and delete hooks.
+  - [x] Troubleshooting missing filestore assets (FileNotFoundError) by querying `ir_attachment` and upgrading Odoo base/custom modules to rebuild assets.
 - **Commits**:
+  - `9a02493` - feat(estate): override _search method and modernize super call
   - `8eda998` - docs(training): check off completed learning outcomes in training log
   - `61cdf5f` - docs(training): initialize training activity log
   - `152e272` - docs(training): add training log and git commit hook automation
