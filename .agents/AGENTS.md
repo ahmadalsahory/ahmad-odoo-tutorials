@@ -25,3 +25,6 @@ Please follow these guidelines strictly:
    * **Project Impact**: Highlight how these design decisions impact the overall project (e.g., performance, database load, scalability, readability, upgrade safety).
    * **Under the Hood**: Provide a deep architectural breakdown of what happens behind the scenes. Detail how Odoo's Python server, the PostgreSQL database, or the browser-side OWL engine processes, compiles, or registers the component, view, or code.
 
+5. **Always Reference the Custom Documentation File**:
+   * For any Odoo 19 developer or reference questions (e.g., ORM, views, actions, OWL, standard modules), you must consult [odoo_documentation.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/odoo_documentation.md) as your primary source of truth.
+   * Search this file first to ensure all abstract examples, syntax templates, and explanations align exactly with the Odoo 19 standards documented in it.
