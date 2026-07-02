@@ -12,7 +12,9 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Developing Python scripts to scrape and clean web documentation.
   - [x] Writing custom compiler scripts to convert Sphinx documentation HTML to formatted Markdown.
   - [x] Configuring project-specific agent instruction rules in `AGENTS.md`.
+  - [x] Overriding low-level Odoo ORM `_search` method and adapting arguments to Odoo 19 signature.
 - **Commits**:
+  - `8eda998` - docs(training): check off completed learning outcomes in training log
   - `61cdf5f` - docs(training): initialize training activity log
   - `152e272` - docs(training): add training log and git commit hook automation
   - `dc1b6b4` - docs: compile Odoo 19 developer reference manual

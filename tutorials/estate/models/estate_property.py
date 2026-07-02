@@ -73,6 +73,16 @@ class EstateProperty(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        print("======== BEFORE CREATING ========", flush=True)
         result = super(EstateProperty, self).create(vals_list)
-        print("======== CREATED ========", flush=True)
+        print("======== AFTER CREATING ========", flush=True)
         return result
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None):
+        print('======== BEFORE SEARCH ========', flush=True)
+        result = super()._search(domain, offset, limit, order)
+        print('======== AFTER SEARCH ========', flush=True)
+        return result
+
+    
