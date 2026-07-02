@@ -13,6 +13,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Writing custom compiler scripts to convert Sphinx documentation HTML to formatted Markdown.
   - [x] Configuring project-specific agent instruction rules in `AGENTS.md`.
 - **Commits**:
+  - `61cdf5f` - docs(training): initialize training activity log
   - `152e272` - docs(training): add training log and git commit hook automation
   - `dc1b6b4` - docs: compile Odoo 19 developer reference manual
   - `d85eeca` - feat(themes): add web themes and layout modules under theme_addons
@@ -21,9 +22,9 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ### 2026-07-01
 - **Key Concepts Learned**:
-  - [ ] Overriding Odoo ORM methods (e.g. `create()`) to print creation status.
-  - [ ] Implementing database model constraints (`_sql_constraints` and `@api.constrains`).
-  - [ ] Expected price validation logic and setting field default values.
+  - [x] Overriding Odoo ORM methods (e.g. `create()`) to print creation status.
+  - [x] Implementing database model constraints (`_sql_constraints` and `@api.constrains`).
+  - [x] Expected price validation logic and setting field default values.
 - **Commits**:
   - `d10cf61` - feat(estate): override create method to print creation status
   - `133a813` - feat(estate): add expected price validation and set field defaults
@@ -31,10 +32,10 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ### 2026-06-30
 - **Key Concepts Learned**:
-  - [ ] Designing form views, statusbars, and action buttons in XML.
-  - [ ] Custom stylesheets integration and styling input field widths in form views.
-  - [ ] Setting up default agent skills, config locks, tutoring guidelines, and clean-code rules.
-  - [ ] Adding hidden fields and active status checkboxes to list views.
+  - [x] Designing form views, statusbars, and action buttons in XML.
+  - [x] Custom stylesheets integration and styling input field widths in form views.
+  - [x] Setting up default agent skills, config locks, tutoring guidelines, and clean-code rules.
+  - [x] Adding hidden fields and active status checkboxes to list views.
 - **Commits**:
   - `2ff6ddc` - revert manual changes to match commit 894a585
   - `5804e34` - style(estate): register custom stylesheet and apply form class
@@ -51,10 +52,10 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ### 2026-06-29
 - **Key Concepts Learned**:
-  - [ ] Creating basic Odoo models (`estate.property` and test models).
-  - [ ] Configuring Odoo security groups and access rights (`ir.model.access.csv`).
-  - [ ] Custom database configuration and paths (`data_dir`) inside `odoo.conf`.
-  - [ ] Docker Compose settings to trigger module updates automatically on restart.
+  - [x] Creating basic Odoo models (`estate.property` and test models).
+  - [x] Configuring Odoo security groups and access rights (`ir.model.access.csv`).
+  - [x] Custom database configuration and paths (`data_dir`) inside `odoo.conf`.
+  - [x] Docker Compose settings to trigger module updates automatically on restart.
 - **Commits**:
   - `9bd1e8b` - Add data_dir configuration to odoo.conf
   - `b985a6b` - Add security to the estate_model
@@ -65,10 +66,10 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ### 2026-06-28
 - **Key Concepts Learned**:
-  - [ ] Setting up Docker environments for Odoo and PostgreSQL.
-  - [ ] Connecting database management tools to Odoo's PostgreSQL database.
-  - [ ] Creating basic manifest files (`__manifest__.py`) and initializing Odoo modules.
-  - [ ] Repository setup, `.gitignore` configuration, and cloning Odoo tutorials.
+  - [x] Setting up Docker environments for Odoo and PostgreSQL.
+  - [x] Connecting database management tools to Odoo's PostgreSQL database.
+  - [x] Creating basic manifest files (`__manifest__.py`) and initializing Odoo modules.
+  - [x] Repository setup, `.gitignore` configuration, and cloning Odoo tutorials.
 - **Commits**:
   - `0322514` - Update pass in the docker compose file
   - `25c521e` - Add __init__.py and __manifest__.py files
