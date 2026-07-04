@@ -4,6 +4,17 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-04
+- **Key Concepts Learned**:
+  - [x] Defining Many2one and One2many model relations in Odoo 19.
+  - [x] Declaring modern Odoo 19 database SQL constraints using the new `models.Constraint` class.
+  - [x] Implementing Python validations (`@api.constrains`) for dynamic data checks (e.g. phone length constraints).
+  - [x] Rendering relational list fields as badges using the `many2many_tags` widget.
+  - [x] Creating nested inline form views inside relational notebook fields to customize child record edits.
+  - [x] Resolving XML sequence loading dependencies and Odoo multi-database CLI upgrade restrictions.
+- **Commits**:
+  - `a895486` - feat(estate): implement estate.owner model and relational views
+
 ### 2026-07-02
 - **Key Concepts Learned**:
   - [x] Docker volume mapping optimization (mapping extra-addons to named volumes).
@@ -19,6 +30,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Configuring `web_icon` on root menu items in XML views.
   - [x] Managing multi-database environments in Docker by removing the `-d` restriction.
 - **Commits**:
+  - `12f98da` - feat(estate): add app icon and configure root menu web icon
   - `384fb41` - feat(estate): override ORM write and unlink methods
   - `9a02493` - feat(estate): override _search method and modernize super call
   - `8eda998` - docs(training): check off completed learning outcomes in training log
