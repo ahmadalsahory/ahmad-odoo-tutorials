@@ -12,6 +12,8 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Setting character string size limits at the database level and validating minimum lengths in Python.
   - [x] Building bi-directional relational views (nesting child sub-grids in notebook form pages).
 - **Commits**:
+  - `88fbdcd` - chore(agents): enforce single commit workflow for training logs
+  - `31c5cef` - docs(training): document many2many relations and validation learning outcomes
   - `ccdb2b5` - feat(estate): implement estate.owner.tag model and many2many relationship
   - `412c79d` - chore(agents): refine rules to avoid repetitive concept logging in training log
   - `3235f96` - docs(training): document model relations and constraints learning outcomes
