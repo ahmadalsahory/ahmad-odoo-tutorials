@@ -16,6 +16,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Structuring form layouts with the sheet container and configuring interactive statusbars using clickable options.
   - [x] Configuring dynamic default values via environment context (self.env.user) and cascade deletes on relational models.
 - **Commits**:
+  - `fed62b4` - chore(agents): add safe file modification protocol rule
   - `0d2fc32` - feat(estate): implement model relationships and tabbed form views
   - `afac56a` - chore(agents): simplify commit workflow in AGENTS.md
   - `449cce9` - feat(estate): add sheet layout and statusbar to property form view

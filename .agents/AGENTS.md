@@ -36,3 +36,10 @@ Please follow these guidelines strictly:
      2. Stage both the modified code files and the updated [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) file.
      3. Run `git commit -m "<type>(<scope>): <description>"` to create the commit. The Git post-commit hook will automatically append the commit log entry and run `git commit --amend --no-edit` under the hood to combine everything.
    * **Only document new, unique concepts that the user actually implemented and practiced in the current session**. Avoid repeating concepts that were already logged in previous days. Do not log concepts that were discussed/explained but not actually applied in code during the session.
+
+7. **Safe File Modification Protocol**:
+   * To prevent line-shift bugs and accidental deletions when editing files (especially markdown lists or training logs):
+     1. Always perform a fresh `view_file` read immediately before making any edit to verify exact current line numbers.
+     2. Ensure the `TargetContent` is unique and includes specific context lines to prevent fuzzy matching errors.
+     3. Keep the `StartLine` and `EndLine` range as narrow as possible.
+     4. Always inspect the tool's diff output or run `git diff` to verify that no unintended lines were modified or deleted. Revert immediately if a regression occurs.
