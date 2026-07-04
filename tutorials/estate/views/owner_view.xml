@@ -14,6 +14,7 @@
                 <field name="phone" optional="show"/>
                 <field name="address" optional="show"/>
                 <field name="property_ids" optional="show" widget="many2many_tags"/>
+                <field name="tag_ids" optional="show" widget="many2many_tags"/>
             </list>
         </field>
     </record>
@@ -28,6 +29,7 @@
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="address"/>
+                        <field name="tag_ids" widget="many2many_tags"/>
                     </group>
                     <notebook>
                         <page string="Properties">

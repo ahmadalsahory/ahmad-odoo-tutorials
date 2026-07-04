@@ -9,10 +9,17 @@ class EstateOwner(models.Model):
     phone = fields.Char(string="Phone Number")
     address = fields.Char(size = 50)
     property_ids = fields.One2many(
-    'estate.property',
-    'owner_id',
-    string="Properties"
-)
+        'estate.property',
+        'owner_id',
+        string="Properties"
+    )
+    tag_ids = fields.Many2many(
+        'estate.owner.tag',
+        relation='estate_owner_tag_rel',
+        column1='owner_id',
+        column2='tag_id',
+        string="Tags"
+    )
 
     _name_unique = models.Constraint(
         'UNIQUE(name)', 
