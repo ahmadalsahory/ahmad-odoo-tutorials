@@ -14,11 +14,13 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Designing Odoo `<search>` views, complying with RelaxNG structure validation (ordering, mandatory search fields, clean group tags).
   - [x] Implementing predefined filtering via Odoo Domain tuple syntax (`in` operator) and custom "Group By" context mappings.
   - [x] Structuring form layouts with the sheet container and configuring interactive statusbars using clickable options.
+  - [x] Configuring dynamic default values via environment context (self.env.user) and cascade deletes on relational models.
 - **Commits**:
-  - `0dd03f5` - chore(agents): simplify commit workflow in AGENTS.md
-  - `11cbd9f` - feat(estate): add sheet layout and statusbar to property form view
-  - `94bf06d` - feat(estate): implement custom search view with available properties filter and postcode grouping
-  - `88fbdcd` - chore(agents): enforce single commit workflow for training logs
+  - `0d2fc32` - feat(estate): implement model relationships and tabbed form views
+  - `afac56a` - chore(agents): simplify commit workflow in AGENTS.md
+  - `449cce9` - feat(estate): add sheet layout and statusbar to property form view
+  - `6e07e4a` - feat(estate): implement custom search view with available properties filter and postcode grouping
+  - `8073d9d` - chore(agents): enforce single commit workflow for training logs
   - `31c5cef` - docs(training): document many2many relations and validation learning outcomes
   - `ccdb2b5` - feat(estate): implement estate.owner.tag model and many2many relationship
   - `412c79d` - chore(agents): refine rules to avoid repetitive concept logging in training log
