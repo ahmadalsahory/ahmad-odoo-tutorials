@@ -32,3 +32,4 @@ Please follow these guidelines strictly:
 6. **Maintain Daily Training Log**:
    * A git `post-commit` hook automatically appends git commit messages to [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) under the current date.
    * Whenever you commit changes or finalize a tutoring session, verify [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) and fill in the `- [ ] Describe what you learned here` checkbox summaries with the actual conceptual learning outcomes (e.g. Odoo model definitions, XML inheritance, Docker configurations).
+   * **Only document new, unique concepts that the user actually implemented and practiced in the current session**. Avoid repeating concepts that were already logged in previous days. Do not log concepts that were discussed/explained but not actually applied in code during the session.
