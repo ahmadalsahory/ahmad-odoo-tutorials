@@ -35,6 +35,24 @@ class EstateProperty(models.Model):
     tag_ids = fields.Many2many("estate.property.tag", string="Tags")
     offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
 
+    best_price = fields.Float(compute="_compute_best_price", readonly=True)
+    @api.depends("offer_ids.price")
+    def _compute_best_price(self):
+        for rec in self:
+            prices = rec.offer_ids.mapped("price")
+            rec.best_price = max(prices) if prices else 0.0
+
+    @api.onchange("garden")
+    def _onchange_garden(self):
+        for rec in self:
+            if self.garden:
+                self.garden_area=10
+                self.garden_orientation="north"
+            else:
+                rec.garden_orientation = None
+                rec.garden_area = 0
+            
+
     _name_unique = models.Constraint(
         'UNIQUE(name)', 
         'The Name must be unique'
@@ -59,7 +77,7 @@ class EstateProperty(models.Model):
             errors.append("Living Area must be greater than zero")
         if self.facades <= 0:
             errors.append("Facades must be greater than zero")
-        if self.garden_area <= 0:
+        if self.garden and self.garden_area <= 0:
             errors.append("Garden Area must be greater than zero")
         if self.expected_price <= 0:
             errors.append("Expected Price must be greater than zero")
