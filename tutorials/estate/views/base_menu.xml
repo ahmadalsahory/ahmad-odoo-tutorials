@@ -1,4 +1,4 @@
 <odoo>
     <menuitem id="real_estate_root_menu" name="Real Estate" web_icon="estate,static/description/icon.png" />
-    <menuitem id="manage_property_menu" name="Manage Properties" parent="real_estate_root_menu" />
+    <menuitem id="manage_menu" name="Manage" parent="real_estate_root_menu" />
 </odoo>

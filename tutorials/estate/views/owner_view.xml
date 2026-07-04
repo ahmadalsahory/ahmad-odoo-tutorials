@@ -1,0 +1,88 @@
+<odoo>
+    <record id="owner_action" model="ir.actions.act_window">
+        <field name="name">Owners</field>
+        <field name="res_model">estate.owner</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="estate_owner_view_list" model="ir.ui.view">
+        <field name="name">Preperty Onwers List</field>
+        <field name="model">estate.owner</field>
+        <field name="arch" type="xml">
+            <list string="Owners">
+                <field name="name" optional="show"/>
+                <field name="phone" optional="show"/>
+                <field name="address" optional="show"/>
+                <field name="property_ids" optional="show" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="estate_owner_view_form" model="ir.ui.view">
+        <field name="name">Edit Owner</field>
+        <field name="model">estate.owner</field>
+        <field name="arch" type="xml">
+            <form string="Owner">
+                <sheet>
+                    <group string="Main Info">
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                    </group>
+                    <notebook>
+                        <page string="Properties">
+                            <field name="property_ids">
+                                <list string="Properties">
+                                    <field name="name" string="Property Name"/>
+                                    <field name="description" optional="hidden"/>
+                                    <field name="postcode" optional="hidden"/>
+                                    <field name="date_availability" optional="show"/>
+                                    <field name="expected_price" optional="show"/>
+                                    <field name="selling_price" optional="show"/>
+                                    <field name="bedrooms" optional="show"/>
+                                    <field name="living_area" optional="show"/>
+                                    <field name="facades" optional="show"/>
+                                    <field name="garage" optional="show"/>
+                                    <field name="garden" optional="show"/>
+                                    <field name="garden_area" optional="show"/>
+                                    <field name="garden_orientation" optional="hidden"/>
+                                    <field name="active" optional="hidden"/>
+                                    <field name="state" optional="hidden"/>
+                                </list>
+
+                                <form string="Property">
+                                    <group>
+                                        <group string="Main Info">
+                                            <field name="name"/>
+                                            <field name="bedrooms"/>
+                                            <field name="living_area"/>
+                                            <field name="facades"/>
+                                            <field name="expected_price"/>
+                                            <field name="state"/>
+                                            <field name="active"/>
+                                        </group>
+                                        <group string="Other Info">
+                                            <field name="postcode"/>
+                                            <field name="date_availability"/>
+                                            <field name="selling_price"/>
+                                            <field name="garage"/>
+                                            <field name="garden"/>
+                                            <field name="garden_area"/>
+                                            <field name="garden_orientation"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <field name="description"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem id="owner_menu" name="Owners" parent="manage_menu" action="owner_action"/>
+</odoo>

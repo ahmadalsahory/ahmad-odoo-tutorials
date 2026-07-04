@@ -28,6 +28,8 @@ class EstateProperty(models.Model):
         default="new"
     )
 
+    owner_id = fields.Many2one("estate.owner",string = 'Owner')
+
     _name_unique = models.Constraint(
         'UNIQUE(name)', 
         'The Name must be unique'
