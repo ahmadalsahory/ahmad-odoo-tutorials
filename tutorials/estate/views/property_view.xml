@@ -63,5 +63,23 @@
         </field>
     </record>
 
+    <record id="property_view_search" model="ir.ui.view">
+        <field name="name">Search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Search Properties">
+                <field name="name" string="Title"/>
+                <field name="postcode"/>
+
+                <filter name="filter_available" string="Available Properties" domain="[('state', 'in', ('new', 'offer-received'))]"/>
+
+                <group>
+                    <filter name="group_by_postcode" string="Postcode" context="{'group_by': 'postcode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
     <menuitem id="property_menu" name="Properties" parent="manage_menu" action="property_action" />
 </odoo>

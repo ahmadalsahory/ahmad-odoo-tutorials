@@ -11,7 +11,10 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Implementing Many2many model relationships and configuring custom SQL join tables (`relation` and `column1`/`column2`).
   - [x] Setting character string size limits at the database level and validating minimum lengths in Python.
   - [x] Building bi-directional relational views (nesting child sub-grids in notebook form pages).
+  - [x] Designing Odoo `<search>` views, complying with RelaxNG structure validation (ordering, mandatory search fields, clean group tags).
+  - [x] Implementing predefined filtering via Odoo Domain tuple syntax (`in` operator) and custom "Group By" context mappings.
 - **Commits**:
+  - `94bf06d` - feat(estate): implement custom search view with available properties filter and postcode grouping
   - `88fbdcd` - chore(agents): enforce single commit workflow for training logs
   - `31c5cef` - docs(training): document many2many relations and validation learning outcomes
   - `ccdb2b5` - feat(estate): implement estate.owner.tag model and many2many relationship
