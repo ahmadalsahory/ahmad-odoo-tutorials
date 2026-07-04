@@ -7,12 +7,14 @@ This log documents the concepts learned, modules implemented, and daily progress
 ### 2026-07-04
 - **Key Concepts Learned**:
   - [x] Defining Many2one and One2many model relations in Odoo 19.
-  - [x] Declaring modern Odoo 19 database SQL constraints using the new `models.Constraint` class.
-  - [x] Implementing Python validations (`@api.constrains`) for dynamic data checks (e.g. phone length constraints).
   - [x] Rendering relational list fields as badges using the `many2many_tags` widget.
-  - [x] Creating nested inline form views inside relational notebook fields to customize child record edits.
-  - [x] Resolving XML sequence loading dependencies and Odoo multi-database CLI upgrade restrictions.
+  - [x] Implementing Many2many model relationships and configuring custom SQL join tables (`relation` and `column1`/`column2`).
+  - [x] Setting character string size limits at the database level and validating minimum lengths in Python.
+  - [x] Building bi-directional relational views (nesting child sub-grids in notebook form pages).
 - **Commits**:
+  - `ccdb2b5` - feat(estate): implement estate.owner.tag model and many2many relationship
+  - `412c79d` - chore(agents): refine rules to avoid repetitive concept logging in training log
+  - `3235f96` - docs(training): document model relations and constraints learning outcomes
   - `a895486` - feat(estate): implement estate.owner model and relational views
 
 ### 2026-07-02
