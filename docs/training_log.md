@@ -13,7 +13,9 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Building bi-directional relational views (nesting child sub-grids in notebook form pages).
   - [x] Designing Odoo `<search>` views, complying with RelaxNG structure validation (ordering, mandatory search fields, clean group tags).
   - [x] Implementing predefined filtering via Odoo Domain tuple syntax (`in` operator) and custom "Group By" context mappings.
+  - [x] Structuring form layouts with the sheet container and configuring interactive statusbars using clickable options.
 - **Commits**:
+  - `11cbd9f` - feat(estate): add sheet layout and statusbar to property form view
   - `94bf06d` - feat(estate): implement custom search view with available properties filter and postcode grouping
   - `88fbdcd` - chore(agents): enforce single commit workflow for training logs
   - `31c5cef` - docs(training): document many2many relations and validation learning outcomes
