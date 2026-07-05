@@ -10,10 +10,13 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Extending standard Odoo models via inheritance (`_inherit`).
   - [x] Designing custom Odoo list and search views with default sorting and grouping.
   - [x] Inheriting default form views via XPath to insert a smart button.
+  - [x] Defining custom QWeb PDF reports and nesting structures in templates.
+  - [x] Querying model records from QWeb templates using custom helper methods.
   - [x] Implementing state-transition action methods on Odoo models.
   - [x] Enforcing server-side validation and displaying user feedback using `UserError`.
   - [x] Styling form `<header>` statusbar using Bootstrap utility classes like `bg-view`.
 - **Commits**:
+  - `52c2b12` - feat(prev_invoices): implement outstanding invoices report and register views
   - `e7ed8ef` - feat(prev_invoices): implement previous invoices lines backend logic and views
   - `23ad588` - feat(prev_invoices): initialize custom account module skeleton
   - `5832515` - feat(estate): implement statusbar action buttons and UserError validations

@@ -8,6 +8,7 @@
     ],
     'data': [
         'views/account_move_views.xml',
+        'report/report_outstanding_lines.xml',
     ],
     'installable': True,
     'application': False,

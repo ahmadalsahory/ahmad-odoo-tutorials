@@ -52,3 +52,17 @@ class AccountMove(models.Model):
                 'edit': False,
             },
         }
+
+
+    def get_outstanding_invoices(self):
+        self.ensure_one()
+        if not self.partner_id:
+            return self.env['account.move']
+            
+        domain = [
+            ('move_type', '=', 'out_invoice'),
+            ('state', '=', 'posted'),
+            ('payment_state', 'in', ('not_paid', 'partial')),
+            ('commercial_partner_id', '=', self.commercial_partner_id.id),
+        ]
+        return self.env['account.move'].search(domain, order='invoice_date_due asc')
