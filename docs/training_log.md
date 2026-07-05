@@ -12,10 +12,12 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Inheriting default form views via XPath to insert a smart button.
   - [x] Defining custom QWeb PDF reports and nesting structures in templates.
   - [x] Querying model records from QWeb templates using custom helper methods.
+  - [x] Configuring Odoo window actions to open list views in floating modal dialogs using `'target': 'new'`.
   - [x] Implementing state-transition action methods on Odoo models.
   - [x] Enforcing server-side validation and displaying user feedback using `UserError`.
   - [x] Styling form `<header>` statusbar using Bootstrap utility classes like `bg-view`.
 - **Commits**:
+  - `637ee16` - feat(prev_invoices): open previous invoices lines in a floating modal
   - `52c2b12` - feat(prev_invoices): implement outstanding invoices report and register views
   - `e7ed8ef` - feat(prev_invoices): implement previous invoices lines backend logic and views
   - `23ad588` - feat(prev_invoices): initialize custom account module skeleton

@@ -46,6 +46,7 @@ class AccountMove(models.Model):
             'views': [(self.env.ref('account_prev_invoices.view_move_line_prev_invoices_tree').id, 'list')],
             'search_view_id': self.env.ref('account_prev_invoices.view_move_line_prev_invoices_search').id,
             'domain': domain,
+            'target': 'new',
             'context': {
                 'search_default_group_by_product': 1,
                 'create': False,
