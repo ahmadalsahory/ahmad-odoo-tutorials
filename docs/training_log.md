@@ -7,10 +7,14 @@ This log documents the concepts learned, modules implemented, and daily progress
 ### 2026-07-05
 - **Key Concepts Learned**:
   - [x] Creating a custom Odoo module inheriting from the standard `account` module.
+  - [x] Extending standard Odoo models via inheritance (`_inherit`).
+  - [x] Designing custom Odoo list and search views with default sorting and grouping.
+  - [x] Inheriting default form views via XPath to insert a smart button.
   - [x] Implementing state-transition action methods on Odoo models.
   - [x] Enforcing server-side validation and displaying user feedback using `UserError`.
   - [x] Styling form `<header>` statusbar using Bootstrap utility classes like `bg-view`.
 - **Commits**:
+  - `e7ed8ef` - feat(prev_invoices): implement previous invoices lines backend logic and views
   - `23ad588` - feat(prev_invoices): initialize custom account module skeleton
   - `5832515` - feat(estate): implement statusbar action buttons and UserError validations
 
