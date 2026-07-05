@@ -4,6 +4,14 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-05
+- **Key Concepts Learned**:
+  - [x] Implementing state-transition action methods on Odoo models.
+  - [x] Enforcing server-side validation and displaying user feedback using `UserError`.
+  - [x] Styling form `<header>` statusbar using Bootstrap utility classes like `bg-view`.
+- **Commits**:
+  - `5832515` - feat(estate): implement statusbar action buttons and UserError validations
+
 ### 2026-07-04
 - **Key Concepts Learned**:
   - [x] Defining Many2one and One2many model relations in Odoo 19.

@@ -1,5 +1,5 @@
 from odoo import fields, models, api
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 class EstateProperty(models.Model):
     _name = "estate.property"
@@ -57,6 +57,22 @@ class EstateProperty(models.Model):
         'UNIQUE(name)', 
         'The Name must be unique'
     )
+
+    def action_sold_offer(self):
+        for rec in self:
+            if(self.state == 'offer-accepted'):
+                self.state = 'sold'
+            else:
+                raise UserError("You cannot sell the property until an offer has been accepted!")
+        return True
+    
+    def action_cancel_offer(self):
+        for rec in self:
+            if(self.state != 'sold'):
+                self.state = 'cancelled'
+            else:
+                raise UserError("You cannot cancel the property while an offer accepted!")
+        return True
 
     @api.constrains('postcode','date_availability','bedrooms','living_area','facades','garden_area','expected_price')
     def _validate_property_fields(self):
