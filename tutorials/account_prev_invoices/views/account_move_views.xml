@@ -13,19 +13,26 @@
         </field>
     </record>
 
-    <!-- 2. جدول مبسط مخصص لعرض أسطر الفواتير السابقة -->
+    <!-- 2. جدول مبسط مخصص لعرض أسطر الفواتير السابقة مع رقم الفاتورة والتاريخ -->
     <record id="view_move_line_prev_invoices_tree" model="ir.ui.view">
         <field name="name">account.move.line.prev.invoices.list</field>
         <field name="model">account.move.line</field>
         <field name="arch" type="xml">
-            <list create="false" edit="false" delete="false" default_order="date desc">
-                <field name="product_id"/>
-                <field name="name" string="Description"/>
-                <field name="price_unit" widget="monetary"/>
-                <field name="price_subtotal" string="Total Amount" widget="monetary"/>
-                <field name="date" string="Date"/>
+            <list create="false" edit="false" delete="false" default_order="invoice_date_due asc">
+                <field name="date" string="Date" optional="show"/>
+                <field name="invoice_date_due" string="Due Date" optional="show"/>
+                <field name="move_id" string="Invoice #" optional="hide"/>
+                <field name="product_id" optional="show"/>
+                <field name="name" string="Description" optional="show"/>
+                <field name="price_unit" widget="monetary" optional="show"/>
+                <field name="price_subtotal" string="Total Amount" widget="monetary" optional="show"/>
+
+                <field name="quantity" optional="hide"/>
+                <field name="price_total" string="Total (Tax Incl.)" widget="monetary" optional="hide"/>
+
                 <field name="currency_id" column_invisible="True"/>
             </list>
+
         </field>
     </record>
 
@@ -36,9 +43,9 @@
         <field name="arch" type="xml">
             <search>
                 <field name="product_id"/>
-                <field name="move_id"/>
+                <!-- <field name="move_id"/> -->
                 <group>
-                    <filter string="Product" name="group_by_product" context="{'group_by': 'product_id'}"/>
+                    <filter string="Invoices" name="group_by_invoice" context="{'group_by': 'invoice_group_name'}"/>
                 </group>
             </search>
         </field>
