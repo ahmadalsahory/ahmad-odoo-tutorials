@@ -6,10 +6,12 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ### 2026-07-05
 - **Key Concepts Learned**:
+  - [x] Creating a custom Odoo module inheriting from the standard `account` module.
   - [x] Implementing state-transition action methods on Odoo models.
   - [x] Enforcing server-side validation and displaying user feedback using `UserError`.
   - [x] Styling form `<header>` statusbar using Bootstrap utility classes like `bg-view`.
 - **Commits**:
+  - `23ad588` - feat(prev_invoices): initialize custom account module skeleton
   - `5832515` - feat(estate): implement statusbar action buttons and UserError validations
 
 ### 2026-07-04
