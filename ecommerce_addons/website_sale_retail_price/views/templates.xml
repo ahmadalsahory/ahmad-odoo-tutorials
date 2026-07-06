@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- وراثة قالب السعر في المتجر الإلكتروني -->
+    <template id="cta_wrapper_boxed_inherit_retail" inherit_id="website_sale.cta_wrapper_boxed">
+        <!-- استهداف حاوية السعر والاسم الأب واستبدالها بالهيكل الجديد -->
+        <xpath expr="//span[@name='o_wsale_cta_wrapper_boxed_price_label']/.." position="replace">
+            <div t-attf-class="{{'d-none' if combination_info['prevent_zero_price_sale'] else 'd-flex'}} flex-column gap-2 flex-grow-1 order-first w-100 mb-3 pb-3 border-bottom">
+
+                <!-- الصف الأول: السعر الأساسي -->
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <span name="o_wsale_cta_wrapper_boxed_price_label" class="text-muted">Price</span>
+                    <div>
+                        <t t-call="website_sale.product_price"/>
+                        <!-- يمكن إضافة كود base_unit_price هنا إذا كان موجوداً بالصف الأصلي -->
+                    </div>
+                </div>
+
+                <!-- الصف الثاني: سعر التجزئة المضاف -->
+                <div t-if="combination_info.get('retail_price')" class="d-flex justify-content-between align-items-center w-100">
+                    <span class="text-muted">Retail Price</span>
+                    <span class="oe_retail_price h6 mb-0 text-muted" t-out="combination_info['retail_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                </div>
+
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

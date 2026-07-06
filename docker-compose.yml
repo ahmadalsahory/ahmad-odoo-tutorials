@@ -25,6 +25,7 @@ services:
       - ./tutorials:/workspace/tutorials
       - ./odoo.conf:/workspace/odoo.conf
       - ./theme_addons:/workspace/theme_addons
+      - ./ecommerce_addons:/workspace/ecommerce_addons
     restart: unless-stopped
 
 volumes:

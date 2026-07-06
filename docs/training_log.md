@@ -4,6 +4,13 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-06
+- **Key Concepts Learned**:
+  - [x] Inheriting and restructuring complex Odoo QWeb layouts (website_sale.cta_wrapper_boxed).
+  - [x] Implementing table-like pricing layouts inside Odoo website views.
+- **Commits**:
+  - `9ec4459` - feat(retail_price): implement retail price layout customization on website sale product template
+
 ### 2026-07-05
 - **Key Concepts Learned**:
   - [x] Creating a custom Odoo module inheriting from the standard `account` module.
