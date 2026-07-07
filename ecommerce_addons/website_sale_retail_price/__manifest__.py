@@ -11,6 +11,11 @@
         'views/res_company_views.xml',
         'views/templates.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'website_sale_retail_price/static/src/js/website_sale_retail_price.js',
+        ],
+    },
     'installable': True,
     'application': False,
 }

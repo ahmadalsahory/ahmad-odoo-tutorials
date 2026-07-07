@@ -11,7 +11,11 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Modernizing Odoo XML views for configuration settings using `<block>` and `<setting>` tags in Odoo 19.
   - [x] Implementing dynamic field properties using python expressions (`required`, `invisible`) instead of legacy `attrs` in Odoo 17/18/19.
   - [x] Inheriting TransientModel (`res.config.settings`) to store company-dependent config parameters.
+  - [x] Patching Odoo frontend JS interactions utilizing `@web/core/utils/patch` to dynamically update DOM elements.
+  - [x] Customizing e-commerce product price elements on variant changes by extending `_onChangeCombination`.
+  - [x] Utilizing `main_object` model checks in QWeb templates to apply conditional styling based on page context.
 - **Commits**:
+  - `9b91f7b` - feat(retail_price): enable dynamic retail price updates on website variant switch
   - `f13050a` - feat(dropship): implement custom dropshipping supplier flow and PO consolidation
 
 ### 2026-07-06
