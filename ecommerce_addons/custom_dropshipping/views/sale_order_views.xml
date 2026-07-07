@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_order_form_inherit_custom_dropship" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.custom.dropship</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="custom_dropship" invisible="1"/>
+                <field name="has_dropship_product" invisible="1"/>
+                <field name="company_partner_id" invisible="1"/>
+                <field name="supplier_id" required="custom_dropship and has_dropship_product and state not in ['sale', 'done', 'cancel']" invisible="not custom_dropship"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

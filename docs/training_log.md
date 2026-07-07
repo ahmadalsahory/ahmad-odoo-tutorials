@@ -4,6 +4,16 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-07
+- **Key Concepts Learned**:
+  - [x] Overriding `_run_buy` on `stock.rule` to customize vendor selection dynamically in Odoo 19.
+  - [x] Overriding `_make_po_get_domain` on `stock.rule` to dynamically control PO merging and consolidation per Sales Order.
+  - [x] Modernizing Odoo XML views for configuration settings using `<block>` and `<setting>` tags in Odoo 19.
+  - [x] Implementing dynamic field properties using python expressions (`required`, `invisible`) instead of legacy `attrs` in Odoo 17/18/19.
+  - [x] Inheriting TransientModel (`res.config.settings`) to store company-dependent config parameters.
+- **Commits**:
+  - `f13050a` - feat(dropship): implement custom dropshipping supplier flow and PO consolidation
+
 ### 2026-07-06
 - **Key Concepts Learned**:
   - [x] Inheriting and restructuring complex Odoo QWeb layouts (website_sale.cta_wrapper_boxed).
