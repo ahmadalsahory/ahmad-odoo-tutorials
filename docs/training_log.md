@@ -4,6 +4,10 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-08
+- **Commits**:
+  - `ae5efd5` - chore(agents): add .bobignore to exclude docs and .agents
+
 ### 2026-07-07
 - **Key Concepts Learned**:
   - [x] Overriding `_run_buy` on `stock.rule` to customize vendor selection dynamically in Odoo 19.
