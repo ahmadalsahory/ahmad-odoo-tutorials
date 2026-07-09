@@ -35,7 +35,10 @@ Please follow these guidelines strictly:
      1. Open and update the checklist in [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) with the session's new conceptual learning outcomes first.
      2. Stage both the modified code files and the updated [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md) file.
      3. Run `git commit -m "<type>(<scope>): <description>"` to create the commit. The Git post-commit hook will automatically append the commit log entry and run `git commit --amend --no-edit` under the hood to combine everything.
-   * **Only document new, unique concepts that the user actually implemented and practiced in the current session**. Avoid repeating concepts that were already logged in previous days. Do not log concepts that were discussed/explained but not actually applied in code during the session.
+   * **Strict Verification Protocol for Key Concepts**:
+     1. Before writing any key concept in [training_log.md](file:///d:/Programming/Odoo/Training/ahmad-odoo-tutorials/docs/training_log.md), you MUST read the historical checklist to verify that this concept (or a functionally identical one) has not been checked off on any previous day.
+     2. Do not log bugfixes, refactorings, syntax corrections, or standard error resolutions (e.g., "fixing indentation", "correcting loop variable self/rec", "fixing attribute values") as key concepts.
+     3. Only log a concept if it represents a major Odoo architectural or framework mechanism (e.g., "Overriding ORM methods", "Defining transient models", "XPath views inheritance") that was successfully implemented for the first time in this codebase during the current session.
 
 7. **Safe File Modification Protocol**:
    * To prevent line-shift bugs and accidental deletions when editing files (especially markdown lists or training logs):
