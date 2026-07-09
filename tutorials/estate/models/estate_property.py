@@ -60,16 +60,16 @@ class EstateProperty(models.Model):
 
     def action_sold_offer(self):
         for rec in self:
-            if(self.state == 'offer-accepted'):
-                self.state = 'sold'
+            if(rec.state == 'offer-accepted'):
+                rec.state = 'sold'
             else:
                 raise UserError("You cannot sell the property until an offer has been accepted!")
         return True
     
     def action_cancel_offer(self):
         for rec in self:
-            if(self.state != 'sold'):
-                self.state = 'cancelled'
+            if(rec.state != 'sold'):
+                rec.state = 'cancelled'
             else:
                 raise UserError("You cannot cancel the property while an offer accepted!")
         return True

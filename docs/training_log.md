@@ -4,6 +4,13 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-09
+- **Key Concepts Learned**:
+  - [x] Fixing recordset iteration issues inside Odoo model action methods.
+  - [x] Implementing dynamic button visibility (`invisible` attribute) using Python expressions in Odoo 17/18/19.
+- **Commits**:
+  - `9b17705` - fix(estate): resolve property state actions and button visibility logic
+
 ### 2026-07-08
 - **Commits**:
   - `ae5efd5` - chore(agents): add .bobignore to exclude docs and .agents
