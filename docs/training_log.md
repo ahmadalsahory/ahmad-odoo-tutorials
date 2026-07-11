@@ -4,6 +4,13 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-11
+- **Key Concepts Learned**:
+  - [x] Integrating Odoo Chatter thread component and configuring message tracking on fields using `tracking=True`.
+
+- **Commits**:
+  - `e34d3f9` - feat(estate): integrate odoo chatter and field tracking
+
 ### 2026-07-09
 - **Commits**:
   - `3fbaaea` - docs(agents): refine rules for key concepts and clean up training log

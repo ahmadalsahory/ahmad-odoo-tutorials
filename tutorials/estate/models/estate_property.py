@@ -4,12 +4,13 @@ from odoo.exceptions import ValidationError, UserError
 class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "Estate Property"
+    _inherit = ['mail.thread','mail.activity.mixin']
 
-    name = fields.Char(string="Title", required=True, default="New")
+    name = fields.Char(string="Title", required=True, default="New", tracking = True)
     description = fields.Text()
     postcode = fields.Char(default="000000", size=12)
     date_availability = fields.Date(copy=False, default=fields.Date.add(fields.Date.today(), months=3))
-    expected_price = fields.Float(required=True)
+    expected_price = fields.Float(required=True, tracking=True)
     selling_price = fields.Float(readonly=True, copy=False)
     bedrooms = fields.Integer(default=2)
     living_area = fields.Integer(string="Living Area (sqm)")
@@ -28,7 +29,9 @@ class EstateProperty(models.Model):
         default="new"
     )
 
-    owner_id = fields.Many2one("estate.owner",string = 'Owner')
+    owner_id = fields.Many2one("estate.owner",string = 'Owner', tracking = True)
+    owner_phone = fields.Char(string = 'Owner Phone', related = 'owner_id.phone')
+
     property_type_id = fields.Many2one("estate.property.type", string="Property Type")
     buyer_id = fields.Many2one("res.partner", string="Buyer", copy=False)
     salesperson_id = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user)
