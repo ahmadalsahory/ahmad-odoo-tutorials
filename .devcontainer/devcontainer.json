@@ -1,0 +1,25 @@
+{
+    "name": "Odoo Work Environment",
+    // الإشارة إلى ملف docker-compose الرئيسي في المشروع
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    // الحاوية التي نريد العمل بداخلها وكتابة الأكواد
+    "service": "odoo",
+    // مسار مجلد المشروع داخل الحاوية
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root",
+    "overrideCommand": true,
+    // الإعدادات المخصصة للـ IDE داخل الحاوية
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python", // لعمل debug وتشغيل البايثون
+                "ms-python.vscode-pylance", // للإكمال التلقائي الذكي
+                "redhat.vscode-xml" // لتصحيح ملفات XML الخاصة بـ Odoo
+            ]
+        }
+    },
+    // أمر اختياري لتثبيت أي مكتبات بايثون مفقودة داخل الحاوية عند بنائها
+    "postCreateCommand": "pip install --user debugpy --break-system-packages"
+}

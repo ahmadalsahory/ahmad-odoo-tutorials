@@ -9,6 +9,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Integrating Odoo Chatter thread component and configuring message tracking on fields using `tracking=True`.
 
 - **Commits**:
+  - `fa06b01` - chore(docker): setup dev container and configure vscode debugging
   - `e34d3f9` - feat(estate): integrate odoo chatter and field tracking
 
 ### 2026-07-09

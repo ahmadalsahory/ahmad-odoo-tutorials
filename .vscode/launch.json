@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Odoo: Run & Debug",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/bin/odoo", // مسار تشغيل odoo داخل نظام لينكس الحاوية
+            "args": [
+                "--config",
+                "/workspace/odoo.conf",
+                "-u",
+                "estate" // لتحديث موديل estate تلقائياً عند التشغيل
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

@@ -22,10 +22,7 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - odoo-extra-addons:/mnt/extra-addons
-      - ./tutorials:/workspace/tutorials
-      - ./odoo.conf:/workspace/odoo.conf
-      - ./theme_addons:/workspace/theme_addons
-      - ./ecommerce_addons:/workspace/ecommerce_addons
+      - .:/workspace
     restart: unless-stopped
 
 volumes:
