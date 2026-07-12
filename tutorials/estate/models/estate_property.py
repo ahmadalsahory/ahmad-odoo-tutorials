@@ -44,6 +44,14 @@ class EstateProperty(models.Model):
         for rec in self:
             rec.state = 'cancelled'
 
+    def _send_email_for_late_properties(self):
+        today = fields.Date.context_today(self)
+        late_properties = self.search([
+            ('date_availability', '<', today),
+            ('state', 'not in', ['sold', 'cancelled'])
+        ])
+        print('======== SEND EMAILS ========', flush=True)
+
     owner_id = fields.Many2one("estate.owner",string = 'Owner', tracking = True)
     owner_phone = fields.Char(string = 'Owner Phone', related = 'owner_id.phone')
 

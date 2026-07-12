@@ -9,8 +9,10 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Defining server actions (`ir.actions.server`) to execute Python code from list/form views using `binding_model_id`.
   - [x] Configuring a custom Dockerfile and multi-file docker-compose setup to build and cache development-only dependencies in VS Code Dev Containers.
   - [x] Using `decoration-*` attributes (e.g., `decoration-danger`) on list views with invisible computed boolean fields to conditionally style entire rows based on record state.
+  - [x] Defining `ir.cron` scheduled actions in XML data to periodically invoke model methods at configurable intervals (e.g., daily).
 
 - **Commits**:
+  - `e803942` - feat(estate): add ir.cron scheduled action for late property emails
   - `359ebb2` - feat(estate): add is_late computed field and list row decoration
   - `b4eafe9` - chore(docker): setup custom Dockerfile and compose override
   - `33c1135` - feat(estate): implement server action to cancel properties
