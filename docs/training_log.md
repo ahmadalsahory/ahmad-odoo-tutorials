@@ -10,8 +10,10 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Configuring a custom Dockerfile and multi-file docker-compose setup to build and cache development-only dependencies in VS Code Dev Containers.
   - [x] Using `decoration-*` attributes (e.g., `decoration-danger`) on list views with invisible computed boolean fields to conditionally style entire rows based on record state.
   - [x] Defining `ir.cron` scheduled actions in XML data to periodically invoke model methods at configurable intervals (e.g., daily).
+  - [x] Defining QWeb PDF/HTML reports using `ir.actions.report` records paired with a `<template>` block, and referencing the model via the auto-generated `model_<name>` external ID on `binding_model_id`.
 
 - **Commits**:
+  - `c4c4c99` - feat(estate): add QWeb property report with styled table layout
   - `e803942` - feat(estate): add ir.cron scheduled action for late property emails
   - `359ebb2` - feat(estate): add is_late computed field and list row decoration
   - `b4eafe9` - chore(docker): setup custom Dockerfile and compose override

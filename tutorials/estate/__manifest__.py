@@ -12,6 +12,7 @@
         'views/property_offer_views.xml',
         'views/owner_view.xml',
         'views/tag_view.xml',
+        'reports/property_report.xml',
     ],
     'application': True,
 }
