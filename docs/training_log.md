@@ -7,8 +7,10 @@ This log documents the concepts learned, modules implemented, and daily progress
 ### 2026-07-12
 - **Key Concepts Learned**:
   - [x] Defining server actions (`ir.actions.server`) to execute Python code from list/form views using `binding_model_id`.
+  - [x] Configuring a custom Dockerfile and multi-file docker-compose setup to build and cache development-only dependencies in VS Code Dev Containers.
 
 - **Commits**:
+  - `b4eafe9` - chore(docker): setup custom Dockerfile and compose override
   - `33c1135` - feat(estate): implement server action to cancel properties
 
 ### 2026-07-11
