@@ -4,6 +4,13 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-12
+- **Key Concepts Learned**:
+  - [x] Defining server actions (`ir.actions.server`) to execute Python code from list/form views using `binding_model_id`.
+
+- **Commits**:
+  - `33c1135` - feat(estate): implement server action to cancel properties
+
 ### 2026-07-11
 - **Key Concepts Learned**:
   - [x] Integrating Odoo Chatter thread component and configuring message tracking on fields using `tracking=True`.

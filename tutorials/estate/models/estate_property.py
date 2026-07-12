@@ -29,6 +29,10 @@ class EstateProperty(models.Model):
         default="new"
     )
 
+    def property_cancelled(self):
+        for rec in self:
+            rec.state = 'cancelled'
+
     owner_id = fields.Many2one("estate.owner",string = 'Owner', tracking = True)
     owner_phone = fields.Char(string = 'Owner Phone', related = 'owner_id.phone')
 
