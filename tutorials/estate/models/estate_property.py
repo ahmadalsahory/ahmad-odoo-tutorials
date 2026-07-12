@@ -9,7 +9,18 @@ class EstateProperty(models.Model):
     name = fields.Char(string="Title", required=True, default="New", tracking = True)
     description = fields.Text()
     postcode = fields.Char(default="000000", size=12)
-    date_availability = fields.Date(copy=False, default=fields.Date.add(fields.Date.today(), months=3))
+    date_availability = fields.Date(copy=False, default=fields.Date.add(fields.Date.today(), months=3), tracking = True)
+    is_late = fields.Boolean(compute="_compute_is_late")
+    
+    @api.depends('date_availability')
+    def _compute_is_late(self):
+        today = fields.Date.context_today(self)
+        for rec in self:
+            if rec.date_availability and rec.date_availability < today:
+                rec.is_late = True
+            else:
+                rec.is_late = False
+
     expected_price = fields.Float(required=True, tracking=True)
     selling_price = fields.Float(readonly=True, copy=False)
     bedrooms = fields.Integer(default=2)
@@ -87,7 +98,7 @@ class EstateProperty(models.Model):
         for record in self:
             errors.extend(record._validate_grater_than_zero())
             errors.extend(record._validate_postcode())
-            errors.extend(record._validate_date_availability())
+            #errors.extend(record._validate_date_availability())
         if errors:
             raise ValidationError("\n".join(errors))
 

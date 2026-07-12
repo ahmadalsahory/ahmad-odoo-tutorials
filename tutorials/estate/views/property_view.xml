@@ -19,7 +19,8 @@
         <field name="name">estate property list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Properties">
+            <list string="Properties" decoration-danger="(is_late)">
+                <field name="is_late" invisible="True"/>
                 <field name="name" optional="show"/>
                 <field name="property_type_id" optional="show"/>
                 <field name="tag_ids" widget="many2many_tags" optional="show"/>
