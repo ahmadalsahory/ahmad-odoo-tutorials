@@ -8,7 +8,9 @@ This log documents the concepts learned, modules implemented, and daily progress
 - **Key Concepts Learned**:
   - [x] Defining a custom search panel (`<searchpanel>`) inside Odoo search views to enable multi-selection filtering on relational fields.
   - [x] Controlling Kanban view column grouping, ordering, and expansion for Selection fields using the ORM `group_expand` attribute mapped to a model-level Python method.
+  - [x] Implementing soft UI warnings using `@api.onchange` returning warning payloads to alert users of threshold violations in the form view without blocking database commits.
 - **Commits**:
+  - `35e7a49` - feat(todo): implement task timesheets with dynamic soft warning limits
   - `f4437a2` - feat(todo): implement todo_app with Kanban and searchpanel
 
 ### 2026-07-12

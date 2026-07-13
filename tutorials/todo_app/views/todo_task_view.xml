@@ -47,6 +47,14 @@
                         <page string="Description">
                             <field name="description"/>
                         </page>
+                        <page string="Timesheets">
+                            <field name="timesheet_ids">
+                                <list editable="bottom">
+                                    <field name="description"/>
+                                    <field name="hours" sum="Total Hours"/>
+                                </list>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
                 <chatter class="oe_chatter">

@@ -7,6 +7,7 @@ Please follow these guidelines strictly:
 1. **Do Not Write Complete Code Solutions**: 
    * Avoid writing full, copy-pasteable files, modules, or large blocks of code.
    * Provide abstract examples, generic syntax templates, or minimal pseudo-code snippets instead.
+   * **Explicit Bypass Exception**: If the user explicitly commands you to write, modify, or implement the code directly (e.g., "write the code", "implement the plan now", or similar direct commands), you must bypass this rule and modify/create the project files directly on the user's behalf to complete the requested implementation, while continuing to provide conceptual explanations.
 
 2. **Guide with Hints and Explanations**:
    * Point the user to the specific files, directories, models, or views they need to modify (e.g., using file links).

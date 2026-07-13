@@ -16,7 +16,45 @@ class TodoTask(models.Model):
     ], default='new', required=True, tracking=True, group_expand='_read_group_state')
 
     user_ids = fields.Many2many('res.users', string='Assigned users', tracking=True)
+    timesheet_ids = fields.One2many(
+        'todo.task.timesheet',
+        'task_id',
+        string='Timesheets'
+    )
+
+    @api.onchange('timesheet_ids', 'date_deadline')
+    def _onchange_timesheet_hours(self):
+        if not self.date_deadline:
+            return
+        
+        today = fields.Date.today()
+        remaining_days = (self.date_deadline - today).days
+        allowed_hours = remaining_days * 24
+        
+        total_hours = sum(line.hours for line in self.timesheet_ids)
+        
+        if total_hours > allowed_hours:
+            return {
+                'warning': {
+                    'title': "Hours Limit Exceeded",
+                    'message': f"Warning: Total logged hours ({total_hours:.1f}h) exceed the available time until the due date ({allowed_hours:.1f}h).",
+                }
+            }
 
     @api.model
     def _read_group_state(self, stages, domain):
         return ['new', 'in_progress', 'completed']
+
+
+class TodoTaskTimesheet(models.Model):
+    _name = 'todo.task.timesheet'
+    _description = 'Task Timesheet'
+
+    description = fields.Char(string='Description', required=True)
+    hours = fields.Float(string='Time (Hours)', required=True, default=1.0)
+    task_id = fields.Many2one(
+        'todo.task',
+        string='Task',
+        ondelete='cascade',
+        required=True
+    )
