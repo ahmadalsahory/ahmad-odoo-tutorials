@@ -45,16 +45,3 @@ class TodoTask(models.Model):
     def _read_group_state(self, stages, domain):
         return ['new', 'in_progress', 'completed']
 
-
-class TodoTaskTimesheet(models.Model):
-    _name = 'todo.task.timesheet'
-    _description = 'Task Timesheet'
-
-    description = fields.Char(string='Description', required=True)
-    hours = fields.Float(string='Time (Hours)', required=True, default=1.0)
-    task_id = fields.Many2one(
-        'todo.task',
-        string='Task',
-        ondelete='cascade',
-        required=True
-    )
