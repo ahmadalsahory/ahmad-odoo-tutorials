@@ -1,3 +1,5 @@
+import pytz
+from datetime import datetime, time
 from odoo import models, fields, api
 
 class TodoTask(models.Model):
@@ -27,9 +29,14 @@ class TodoTask(models.Model):
         if not self.date_deadline:
             return
         
-        today = fields.Date.today()
-        remaining_days = (self.date_deadline - today).days
-        allowed_hours = remaining_days * 24
+        user_tz = self.env.user.tz or 'UTC'
+        tz = pytz.timezone(user_tz)
+        
+        now_local = datetime.now(tz)
+        deadline_local = tz.localize(datetime.combine(self.date_deadline, time(23, 59, 59)))
+        
+        diff = deadline_local - now_local
+        allowed_hours = max(0.0, diff.total_seconds() / 3600.0)
         
         total_hours = sum(line.hours for line in self.timesheet_ids)
         

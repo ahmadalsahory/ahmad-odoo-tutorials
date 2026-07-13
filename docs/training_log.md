@@ -10,6 +10,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Controlling Kanban view column grouping, ordering, and expansion for Selection fields using the ORM `group_expand` attribute mapped to a model-level Python method.
   - [x] Implementing soft UI warnings using `@api.onchange` returning warning payloads to alert users of threshold violations in the form view without blocking database commits.
 - **Commits**:
+  - `052d1ea` - feat(todo): calculate remaining hours until exact end of due date in local timezone
   - `f6051bf` - style(todo): display hours limit warning as non-blocking toast notification
   - `78e45ec` - refactor(todo): separate TodoTaskTimesheet model into a separate python file
   - `35e7a49` - feat(todo): implement task timesheets with dynamic soft warning limits
