@@ -38,6 +38,8 @@ class TodoTask(models.Model):
                 'warning': {
                     'title': "Hours Limit Exceeded",
                     'message': f"Warning: Total logged hours ({total_hours:.1f}h) exceed the available time until the due date ({allowed_hours:.1f}h).",
+                    'type': 'notification',
+                    'sticky': False,
                 }
             }
 
