@@ -4,6 +4,13 @@ This log documents the concepts learned, modules implemented, and daily progress
 
 ---
 
+### 2026-07-13
+- **Key Concepts Learned**:
+  - [x] Defining a custom search panel (`<searchpanel>`) inside Odoo search views to enable multi-selection filtering on relational fields.
+  - [x] Controlling Kanban view column grouping, ordering, and expansion for Selection fields using the ORM `group_expand` attribute mapped to a model-level Python method.
+- **Commits**:
+  - `f4437a2` - feat(todo): implement todo_app with Kanban and searchpanel
+
 ### 2026-07-12
 - **Key Concepts Learned**:
   - [x] Defining server actions (`ir.actions.server`) to execute Python code from list/form views using `binding_model_id`.
