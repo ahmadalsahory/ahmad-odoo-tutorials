@@ -50,6 +50,7 @@
                         <page string="Timesheets">
                             <field name="timesheet_ids">
                                 <list editable="bottom">
+                                    <field name="date"/>
                                     <field name="description"/>
                                     <field name="hours" sum="Total Hours"/>
                                 </list>
