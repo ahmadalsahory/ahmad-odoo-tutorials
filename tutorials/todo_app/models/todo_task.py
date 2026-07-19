@@ -54,3 +54,10 @@ class TodoTask(models.Model):
     def _read_group_state(self, stages, domain):
         return ['new', 'in_progress', 'completed']
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('name', 'New') == 'New' or not vals.get('name'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('todo.task') or 'New'
+        return super().create(vals_list)
+

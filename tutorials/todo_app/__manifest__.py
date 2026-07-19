@@ -5,6 +5,7 @@
     'category': 'Tools',
     'depends': ['base','mail'],
     'data': [
+        'data/todo_task_sequence.xml',
         'security/ir.model.access.csv',
         'views/todo_task_view.xml',
         'views/base_menu.xml',
