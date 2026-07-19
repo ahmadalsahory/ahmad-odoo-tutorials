@@ -9,6 +9,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Defining automatic, date-based database sequences using `ir.sequence` records within XML files.
   - [x] Overriding the Odoo ORM `@api.model_create_multi` decorated `create()` method to dynamically fetch and assign sequence numbers.
 - **Commits**:
+  - `d7489a4` - refactor(todo): simplify task sequence prefix to Task-
   - `64329e4` - feat(todo): implement automatic date-based sequence for tasks
   - `ade89a1` - feat(todo): add task report and integrate date field in timesheets
 
