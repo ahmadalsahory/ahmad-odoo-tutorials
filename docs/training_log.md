@@ -10,6 +10,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Validating model fields using `@api.constrains` and raising `ValidationError` for invalid range boundaries.
 
 - **Commits**:
+  - `9b03e0c` - fix(sales_commission): correct parent menu XML ID to sale.menu_reporting_sales
   - `669308f` - feat(sales_commission): add range validation constraints and unit tests
   - `ac5340c` - feat(sales_commission): implement module structure and configuration models
 
