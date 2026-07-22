@@ -33,7 +33,7 @@ class TestSalesCommission(TransactionCase):
         self.assertEqual(rate_3000, 20.0, "Rate for $3000 should be 20%")
 
         rate_10000 = self.commission_plan.get_commission_rate(10000.0)
-        self.assertEqual(rate_10000, 0.0, "Unmatched range should return 0%")
+        self.assertEqual(rate_10000, 20.0, "Exceeding max tier should return highest tier rate (20%)")
 
     def test_res_users_commission_plan_assignment(self):
         """Test assigning commission plan directly on res.users record."""
@@ -47,6 +47,24 @@ class TestSalesCommission(TransactionCase):
                 'plan_id': self.commission_plan.id,
                 'amount_from': 1000.0,
                 'amount_to': 500.0,
+                'rate': 15.0,
+            })
+
+    def test_overlapping_range_constraints(self):
+        """Test that overlapping ranges or shared exact boundaries raise ValidationError."""
+        with self.assertRaises(ValidationError):
+            self.env['sales.commission.plan.line'].create({
+                'plan_id': self.commission_plan.id,
+                'amount_from': 5000.0,
+                'amount_to': 10000.0,
+                'rate': 25.0,
+            })
+
+        with self.assertRaises(ValidationError):
+            self.env['sales.commission.plan.line'].create({
+                'plan_id': self.commission_plan.id,
+                'amount_from': 500.0,
+                'amount_to': 800.0,
                 'rate': 15.0,
             })
 

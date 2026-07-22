@@ -11,6 +11,7 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Extending `res.users` model and inheriting `base.view_users_form` XML view to assign and display commission plans on salesperson pages.
 
 - **Commits**:
+  - `b00831a` - feat(sales_commission): add range overlap validation and highest tier fallback rate
   - `7bee9bf` - feat(sales_commission): display salesperson commission plan in report wizard and QWeb PDF
   - `cfc5395` - fix(sales_commission): target notebook container in res_users_views.xml
   - `49400ed` - feat(sales_commission): add commission plan field to res.users form view
