@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class SalesCommissionPlan(models.Model):
@@ -45,3 +46,14 @@ class SalesCommissionPlanLine(models.Model):
     amount_from = fields.Float(string='From Amount', required=True)
     amount_to = fields.Float(string='To Amount', required=True)
     rate = fields.Float(string='Commission Rate (%)', required=True)
+
+    @api.constrains('amount_from', 'amount_to', 'rate')
+    def _check_ranges(self):
+        for line in self:
+            if line.amount_from < 0:
+                raise ValidationError("The 'From Amount' cannot be negative.")
+            if line.amount_to < line.amount_from:
+                raise ValidationError("The 'To Amount' must be greater than or equal to 'From Amount'.")
+            if line.rate < 0 or line.rate > 100:
+                raise ValidationError("The 'Commission Rate (%)' must be between 0 and 100.")
+

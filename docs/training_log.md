@@ -7,8 +7,10 @@ This log documents the concepts learned, modules implemented, and daily progress
 - **Key Concepts Learned**:
   - [x] Defining range percentage configuration models (`sales.commission.plan.line`) and computing dynamic flat bracket commission rates.
   - [x] Implementing transient wizard models (`sales.commission.report.wizard`) to aggregate posted and paid customer invoices (`out_invoice`) minus credit notes (`out_refund`).
+  - [x] Validating model fields using `@api.constrains` and raising `ValidationError` for invalid range boundaries.
 
 - **Commits**:
+  - `669308f` - feat(sales_commission): add range validation constraints and unit tests
   - `ac5340c` - feat(sales_commission): implement module structure and configuration models
 
 ### 2026-07-19

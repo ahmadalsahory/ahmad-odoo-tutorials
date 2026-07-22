@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo.tests.common import TransactionCase
+from odoo.exceptions import ValidationError
 
 
 class TestSalesCommission(TransactionCase):
@@ -33,3 +34,14 @@ class TestSalesCommission(TransactionCase):
 
         rate_10000 = self.commission_plan.get_commission_rate(10000.0)
         self.assertEqual(rate_10000, 0.0, "Unmatched range should return 0%")
+
+    def test_invalid_range_constraints(self):
+        """Test that invalid ranges raise ValidationError."""
+        with self.assertRaises(ValidationError):
+            self.env['sales.commission.plan.line'].create({
+                'plan_id': self.commission_plan.id,
+                'amount_from': 1000.0,
+                'amount_to': 500.0,
+                'rate': 15.0,
+            })
+
