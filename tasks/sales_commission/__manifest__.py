@@ -17,6 +17,7 @@ Sales Commission Module
         'security/ir.model.access.csv',
         'views/sales_commission_plan_views.xml',
         'views/sales_commission_report_views.xml',
+        'views/res_users_views.xml',
         'views/menu_views.xml',
         'report/sales_commission_report_template.xml',
     ],

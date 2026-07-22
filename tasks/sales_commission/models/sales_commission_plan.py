@@ -10,11 +10,9 @@ class SalesCommissionPlan(models.Model):
 
     name = fields.Char(string='Plan Name', required=True)
     active = fields.Boolean(string='Active', default=True)
-    user_ids = fields.Many2many(
+    user_ids = fields.One2many(
         comodel_name='res.users',
-        relation='sales_commission_plan_user_rel',
-        column1='plan_id',
-        column2='user_id',
+        inverse_name='commission_plan_id',
         string='Salespersons',
     )
     line_ids = fields.One2many(

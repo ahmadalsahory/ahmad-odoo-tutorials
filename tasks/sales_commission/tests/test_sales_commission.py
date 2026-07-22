@@ -35,6 +35,11 @@ class TestSalesCommission(TransactionCase):
         rate_10000 = self.commission_plan.get_commission_rate(10000.0)
         self.assertEqual(rate_10000, 0.0, "Unmatched range should return 0%")
 
+    def test_res_users_commission_plan_assignment(self):
+        """Test assigning commission plan directly on res.users record."""
+        self.assertEqual(self.salesperson.commission_plan_id, self.commission_plan)
+        self.assertIn(self.salesperson, self.commission_plan.user_ids)
+
     def test_invalid_range_constraints(self):
         """Test that invalid ranges raise ValidationError."""
         with self.assertRaises(ValidationError):
@@ -44,4 +49,6 @@ class TestSalesCommission(TransactionCase):
                 'amount_to': 500.0,
                 'rate': 15.0,
             })
+
+
 

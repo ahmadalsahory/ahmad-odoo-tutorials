@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Menu Item in Sales Configuration -->
-    <menuitem id="menu_sales_commission_plan"
-              name="Commission Plans"
-              action="action_sales_commission_plan"
-              parent="sale.menu_sale_config"
-              sequence="50"/>
+    <menuitem id="menu_sales_commission_plan" name="Commission Plans" action="action_sales_commission_plan" parent="sale.menu_sale_config" sequence="2"/>
 
     <!-- Menu Item in Sales Reporting -->
-    <menuitem id="menu_sales_commission_report"
-              name="Commission Report"
-              action="action_sales_commission_report_wizard"
-              parent="sale.menu_reporting_sales"
-              sequence="30"/>
+    <menuitem id="menu_sales_commission_report" name="Commission Report" action="action_sales_commission_report_wizard" parent="sale.menu_reporting_sales" sequence="30"/>
 </odoo>

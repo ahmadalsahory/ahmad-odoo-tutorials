@@ -8,8 +8,10 @@ This log documents the concepts learned, modules implemented, and daily progress
   - [x] Defining range percentage configuration models (`sales.commission.plan.line`) and computing dynamic flat bracket commission rates.
   - [x] Implementing transient wizard models (`sales.commission.report.wizard`) to aggregate posted and paid customer invoices (`out_invoice`) minus credit notes (`out_refund`).
   - [x] Validating model fields using `@api.constrains` and raising `ValidationError` for invalid range boundaries.
+  - [x] Extending `res.users` model and inheriting `base.view_users_form` XML view to assign and display commission plans on salesperson pages.
 
 - **Commits**:
+  - `49400ed` - feat(sales_commission): add commission plan field to res.users form view
   - `9b03e0c` - fix(sales_commission): correct parent menu XML ID to sale.menu_reporting_sales
   - `669308f` - feat(sales_commission): add range validation constraints and unit tests
   - `ac5340c` - feat(sales_commission): implement module structure and configuration models

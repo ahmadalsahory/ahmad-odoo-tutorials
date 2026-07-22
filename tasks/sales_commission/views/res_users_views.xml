@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_sales_commission" model="ir.ui.view">
+        <field name="name">res.users.form.sales.commission</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='references']" position="after">
+                <page string="Commission" name="commission_plan">
+                    <group>
+                        <group string="Sales Commission Configuration">
+                            <field name="commission_plan_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
