@@ -12,43 +12,49 @@
     </record>
 
     <template id="report_sales_commission_document">
-        <t t-call="web.external_layout">
-            <div class="page">
-                <h2 class="text-center">Sales Commission Report</h2>
-                <div class="row mt-4 mb-4">
-                    <div class="col-6">
-                        <strong>Start Date:</strong> <span t-field="docs.date_from"/>
-                    </div>
-                    <div class="col-6 text-end">
-                        <strong>End Date:</strong> <span t-field="docs.date_to"/>
-                    </div>
-                </div>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Sales Commission Report</h2>
+                        <div class="row mt-4 mb-4">
+                            <div class="col-6">
+                                <strong>Start Date:</strong> <span t-field="doc.date_from"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <strong>End Date:</strong> <span t-field="doc.date_to"/>
+                            </div>
+                        </div>
 
-                <table class="table table-sm table-striped mt-3">
-                    <thead>
-                        <tr>
-                            <th>Salesperson</th>
-                            <th class="text-end">Paid Invoices Amount</th>
-                            <th class="text-end">Paid Credit Notes Amount</th>
-                            <th class="text-end">Net Sales Amount</th>
-                            <th class="text-end">Commission Rate (%)</th>
-                            <th class="text-end">Commission Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <t t-foreach="docs.line_ids" t-as="line">
-                            <tr>
-                                <td><span t-field="line.user_id.name"/></td>
-                                <td class="text-end"><span t-field="line.invoiced_amount"/></td>
-                                <td class="text-end"><span t-field="line.refund_amount"/></td>
-                                <td class="text-end"><span t-field="line.net_amount"/></td>
-                                <td class="text-end"><span t-field="line.rate"/>%</td>
-                                <td class="text-end"><strong><span t-field="line.commission_amount"/></strong></td>
-                            </tr>
-                        </t>
-                    </tbody>
-                </table>
-            </div>
+                        <table class="table table-sm table-striped mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Salesperson</th>
+                                    <th>Commission Plan</th>
+                                    <th class="text-end">Paid Invoices Amount</th>
+                                    <th class="text-end">Paid Credit Notes Amount</th>
+                                    <th class="text-end">Net Sales Amount</th>
+                                    <th class="text-end">Commission Rate (%)</th>
+                                    <th class="text-end">Commission Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.user_id.name"/></td>
+                                        <td><span t-field="line.plan_id.name"/></td>
+                                        <td class="text-end"><span t-field="line.invoiced_amount"/></td>
+                                        <td class="text-end"><span t-field="line.refund_amount"/></td>
+                                        <td class="text-end"><span t-field="line.net_amount"/></td>
+                                        <td class="text-end"><span t-field="line.rate"/>%</td>
+                                        <td class="text-end"><strong><span t-field="line.commission_amount"/></strong></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
         </t>
     </template>
 </odoo>

@@ -21,6 +21,7 @@
                             <field name="line_ids" readonly="1">
                                 <list>
                                     <field name="user_id"/>
+                                    <field name="plan_id"/>
                                     <field name="invoiced_amount" sum="Total Invoiced"/>
                                     <field name="refund_amount" sum="Total Refunded"/>
                                     <field name="net_amount" sum="Total Net Sales"/>

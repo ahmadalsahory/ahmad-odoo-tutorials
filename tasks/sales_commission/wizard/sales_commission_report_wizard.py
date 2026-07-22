@@ -54,7 +54,7 @@ class SalesCommissionReportWizard(models.TransientModel):
             net_amount = invoiced_amount - refund_amount
 
             # Find matching commission plan for user
-            plan = self.env['sales.commission.plan'].search([('user_ids', 'in', user.id)], limit=1)
+            plan = user.commission_plan_id
             rate = plan.get_commission_rate(net_amount) if plan else 0.0
             commission_amount = (net_amount * rate) / 100.0 if net_amount > 0 else 0.0
 
@@ -99,6 +99,12 @@ class SalesCommissionReportLine(models.TransientModel):
         comodel_name='res.users',
         string='Salesperson',
         required=True,
+    )
+    plan_id = fields.Many2one(
+        comodel_name='sales.commission.plan',
+        string='Commission Plan',
+        related='user_id.commission_plan_id',
+        readonly=True,
     )
     invoiced_amount = fields.Float(string='Paid Invoices Amount')
     refund_amount = fields.Float(string='Paid Credit Notes Amount')

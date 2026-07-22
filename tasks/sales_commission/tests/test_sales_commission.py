@@ -50,5 +50,13 @@ class TestSalesCommission(TransactionCase):
                 'rate': 15.0,
             })
 
-
-
+    def test_report_wizard_plan_id(self):
+        """Test that commission report lines properly link the salesperson's commission plan."""
+        wizard = self.env['sales.commission.report.wizard'].create({
+            'date_from': '2026-01-01',
+            'date_to': '2026-12-31',
+            'user_ids': [(4, self.salesperson.id)],
+        })
+        wizard.action_generate_report()
+        self.assertEqual(len(wizard.line_ids), 1)
+        self.assertEqual(wizard.line_ids.plan_id, self.commission_plan)
