@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+
+from odoo.tests.common import TransactionCase
+
+
+class TestSalesCommission(TransactionCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.salesperson = cls.env['res.users'].create({
+            'name': 'Test Salesperson',
+            'login': 'test_salesperson',
+            'email': 'test_salesperson@example.com',
+        })
+
+        cls.commission_plan = cls.env['sales.commission.plan'].create({
+            'name': 'Test Commission Plan',
+            'user_ids': [(4, cls.salesperson.id)],
+            'line_ids': [
+                (0, 0, {'amount_from': 0.0, 'amount_to': 1000.0, 'rate': 10.0}),
+                (0, 0, {'amount_from': 1001.0, 'amount_to': 5000.0, 'rate': 20.0}),
+            ]
+        })
+
+    def test_commission_rate_calculation(self):
+        """Test getting commission rate for different net sales amounts."""
+        rate_500 = self.commission_plan.get_commission_rate(500.0)
+        self.assertEqual(rate_500, 10.0, "Rate for $500 should be 10%")
+
+        rate_3000 = self.commission_plan.get_commission_rate(3000.0)
+        self.assertEqual(rate_3000, 20.0, "Rate for $3000 should be 20%")
+
+        rate_10000 = self.commission_plan.get_commission_rate(10000.0)
+        self.assertEqual(rate_10000, 0.0, "Unmatched range should return 0%")

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View for Commission Report Wizard -->
+    <record id="view_sales_commission_report_wizard_form" model="ir.ui.view">
+        <field name="name">sales.commission.report.wizard.form</field>
+        <field name="model">sales.commission.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sales Commission Report">
+                <sheet>
+                    <group>
+                        <group string="Date Range">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group string="Target Salespersons">
+                            <field name="user_ids" widget="many2many_tags" placeholder="All Salespersons if left blank"/>
+                        </group>
+                    </group>
+                    <notebook invisible="not line_ids">
+                        <page string="Commission Results">
+                            <field name="line_ids" readonly="1">
+                                <list>
+                                    <field name="user_id"/>
+                                    <field name="invoiced_amount" sum="Total Invoiced"/>
+                                    <field name="refund_amount" sum="Total Refunded"/>
+                                    <field name="net_amount" sum="Total Net Sales"/>
+                                    <field name="rate"/>
+                                    <field name="commission_amount" sum="Total Commission"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="action_generate_report" string="Calculate Report" type="object" class="btn-primary"/>
+                    <button name="action_print_pdf" string="Print PDF" type="object" class="btn-secondary" invisible="not line_ids"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Commission Report Wizard -->
+    <record id="action_sales_commission_report_wizard" model="ir.actions.act_window">
+        <field name="name">Sales Commission Report</field>
+        <field name="res_model">sales.commission.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

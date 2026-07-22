@@ -2,7 +2,14 @@
 
 This log documents the concepts learned, modules implemented, and daily progress during the Odoo training period.
 
----
+
+### 2026-07-22
+- **Key Concepts Learned**:
+  - [x] Defining range percentage configuration models (`sales.commission.plan.line`) and computing dynamic flat bracket commission rates.
+  - [x] Implementing transient wizard models (`sales.commission.report.wizard`) to aggregate posted and paid customer invoices (`out_invoice`) minus credit notes (`out_refund`).
+
+- **Commits**:
+  - `ac5340c` - feat(sales_commission): implement module structure and configuration models
 
 ### 2026-07-19
 - **Key Concepts Learned**:
