@@ -25,15 +25,29 @@ class TestSalesCommission(TransactionCase):
         })
 
     def test_commission_rate_calculation(self):
-        """Test getting commission rate for different net sales amounts."""
-        rate_500 = self.commission_plan.get_commission_rate(500.0)
-        self.assertEqual(rate_500, 10.0, "Rate for $500 should be 10%")
+        """Test getting commission rate for different net sales amounts including gaps."""
+        plan = self.env['sales.commission.plan'].create({
+            'name': 'Gap Test Plan',
+            'line_ids': [
+                (0, 0, {'amount_from': 1000.0, 'amount_to': 5000.0, 'rate': 10.0}),
+                (0, 0, {'amount_from': 10000.0, 'amount_to': 20000.0, 'rate': 20.0}),
+            ]
+        })
 
-        rate_3000 = self.commission_plan.get_commission_rate(3000.0)
-        self.assertEqual(rate_3000, 20.0, "Rate for $3000 should be 20%")
+        # Below lowest tier ($500) -> 0.0%
+        self.assertEqual(plan.get_commission_rate(500.0), 0.0, "Rate below lowest tier should be 0%")
 
-        rate_10000 = self.commission_plan.get_commission_rate(10000.0)
-        self.assertEqual(rate_10000, 20.0, "Exceeding max tier should return highest tier rate (20%)")
+        # Direct match inside tier 1 ($3000) -> 10.0%
+        self.assertEqual(plan.get_commission_rate(3000.0), 10.0, "Rate for $3000 should be 10%")
+
+        # Gap between tier 1 and tier 2 ($7000) -> lower tier rate (10.0%)
+        self.assertEqual(plan.get_commission_rate(7000.0), 10.0, "Rate for $7000 in gap should fall back to tier 1 rate 10%")
+
+        # Direct match inside tier 2 ($15000) -> 20.0%
+        self.assertEqual(plan.get_commission_rate(15000.0), 20.0, "Rate for $15000 should be 20%")
+
+        # Exceeding max tier ($25000) -> highest tier rate (20.0%)
+        self.assertEqual(plan.get_commission_rate(25000.0), 20.0, "Exceeding max tier should return highest tier rate 20%")
 
     def test_res_users_commission_plan_assignment(self):
         """Test assigning commission plan directly on res.users record."""

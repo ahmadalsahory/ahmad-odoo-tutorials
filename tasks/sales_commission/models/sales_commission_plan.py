@@ -27,14 +27,16 @@ class SalesCommissionPlan(models.Model):
         if not self.line_ids:
             return 0.0
 
+        # 1. Direct match within range
         for line in self.line_ids:
             if line.amount_from <= net_amount <= line.amount_to:
                 return line.rate
 
-        # If net_amount exceeds the highest tier, return the rate of the highest tier
-        max_line = max(self.line_ids, key=lambda l: l.amount_to)
-        if net_amount > max_line.amount_to:
-            return max_line.rate
+        # 2. Fallback for range gaps or exceeding upper bound:
+        # Return the rate of the preceding tier with the largest amount_to <= net_amount
+        preceding_lines = [line for line in self.line_ids if line.amount_to <= net_amount]
+        if preceding_lines:
+            return max(preceding_lines, key=lambda l: l.amount_to).rate
 
         return 0.0
 
